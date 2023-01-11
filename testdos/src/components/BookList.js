@@ -31,9 +31,9 @@ const BooksList = ({ getBookId }) => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Book Title</th>
-            <th>Book Author</th>
-            <th>Status</th>
+            <th>Subject</th>
+            <th>Student</th>
+            <th>Slot</th>
             <th>Action</th>
           </tr>
         </thead>

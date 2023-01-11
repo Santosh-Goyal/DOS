@@ -5,7 +5,7 @@ import BookDataService from "../services/book.services";
 const AddBook = ({ id, setBookId }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [status, setStatus] = useState("Available");
+  const [status, setStatus] = useState("Evening");
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, msg: "" });
 
@@ -30,7 +30,7 @@ const AddBook = ({ id, setBookId }) => {
         setMessage({ error: false, msg: "Updated successfully!" });
       } else {
         await BookDataService.addBooks(newBook);
-        setMessage({ error: false, msg: "New Book added successfully!" });
+        setMessage({ error: false, msg: "New Student added successfully!" });
       }
     } catch (err) {
       setMessage({ error: true, msg: err.message });
@@ -78,7 +78,7 @@ const AddBook = ({ id, setBookId }) => {
               <InputGroup.Text id="formBookTitle">B</InputGroup.Text>
               <Form.Control
                 type="text"
-                placeholder="Book Title"
+                placeholder="Subject"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -90,7 +90,7 @@ const AddBook = ({ id, setBookId }) => {
               <InputGroup.Text id="formBookAuthor">A</InputGroup.Text>
               <Form.Control
                 type="text"
-                placeholder="Book Author"
+                placeholder="Student"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
               />
@@ -101,21 +101,21 @@ const AddBook = ({ id, setBookId }) => {
               disabled={flag}
               variant="success"
               onClick={(e) => {
-                setStatus("Available");
+                setStatus("Morning");
                 setFlag(true);
               }}
             >
-              Available
+              Morning
             </Button>
             <Button
               variant="danger"
               disabled={!flag}
               onClick={(e) => {
-                setStatus("Not Available");
+                setStatus("Evening");
                 setFlag(false);
               }}
             >
-              Not Available
+              Evening
             </Button>
           </ButtonGroup>
           <div className="d-grid gap-2">
